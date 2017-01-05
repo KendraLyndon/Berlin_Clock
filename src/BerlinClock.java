@@ -30,18 +30,14 @@ public class BerlinClock {
 	
 	protected String ConvertBottomHours(int hours){
 		String bottomHours = "";
+		int litLamps = hours % 10;
 		
-		int mod = hours % 10;
-		if (mod == 4){
-			bottomHours = "RRRR";
-		} else if (mod == 3){
-			bottomHours = "RRRO";
-		} else if (mod == 2){
-			bottomHours = "RROO";
-		} else if (mod == 1){
-			bottomHours = "ROOO";
-		} else if (mod == 0){
-			bottomHours = "OOOO";
+		for(int i=0; i<litLamps; i++){
+			bottomHours += "R";
+		}
+		
+		for(int i=bottomHours.length(); i<4; i++){
+			bottomHours += "O";
 		}
 		
 		return bottomHours;
