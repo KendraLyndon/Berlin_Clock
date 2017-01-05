@@ -15,35 +15,43 @@ public class BerlinClock {
 	
 	protected String ConvertTopHours(int hours){
 		String topHours = "";
-		if(hours >= 20){
-			topHours = "RRRR";
-		} else if(hours >= 15){
-			topHours = "RRRO";
-		} else if(hours >= 10){
-			topHours = "RROO";
-		} else if(hours >= 5){
-			topHours = "ROOO";
-		} else {
-			topHours = "OOOO";
+		int litLamps = hours/5;
+		
+		for(int i=0; i<litLamps; i++){
+			topHours += "R";
 		}
+		
+		for(int i=topHours.length(); i<4; i++){
+			topHours += "O";
+		}
+		
 		return topHours;
 	}
 	
 	protected String ConvertBottomHours(int hours){
 		String bottomHours = "";
+		
 		int mod = hours % 10;
-		if(mod == 4){
+		if (mod == 4){
 			bottomHours = "RRRR";
-		} else if(mod == 3){
+		} else if (mod == 3){
 			bottomHours = "RRRO";
-		} else if(mod == 2){
+		} else if (mod == 2){
 			bottomHours = "RROO";
-		} else if(mod == 1){
+		} else if (mod == 1){
 			bottomHours = "ROOO";
-		} else if(mod == 0){
+		} else if (mod == 0){
 			bottomHours = "OOOO";
 		}
+		
 		return bottomHours;
 	}
-	
+//	
+//	protected String ConvertTopMinutes(int minutes){
+//		String topMinutes = "";
+//		
+//		if(minutes )
+//		
+//		return topMinutes;
+//	}
 }
