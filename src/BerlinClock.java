@@ -1,9 +1,20 @@
 import java.util.Arrays;
 
 public class BerlinClock {
-//	public String[] convertToBerlin(String time){
-//		return null;
-//	}
+	
+	public String[] ConvertToBerlin(String time){
+		
+		String[] timeArray = time.split(":");
+		
+		String row0 = ConvertSeconds(Integer.parseInt(timeArray[2]));
+		String row1 = ConvertTopHours(Integer.parseInt(timeArray[0]));
+		String row2 = ConvertBottomHours(Integer.parseInt(timeArray[0]));
+		String row3 = ConvertTopMinutes(Integer.parseInt(timeArray[1]));
+		String row4 = ConvertBottomMinutes(Integer.parseInt(timeArray[1]));
+		
+		String[] clock = { row0, row1, row2, row3, row4 };
+		return clock;
+	}
 	
 	protected String ConvertSeconds(int seconds){
 		if(seconds % 2 == 0){

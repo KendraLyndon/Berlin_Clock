@@ -50,4 +50,10 @@ public class BerlinClockTest extends BerlinClock{
 		assertEquals(ConvertBottomMinutes(30),"OOOO");
 		assertEquals(ConvertBottomMinutes(5),"OOOO");
 	}
+	
+	@Test
+	public void testConvertToBerlin(){
+		String[] time = {"Y","RRRR","RRRO","OOOOOOOOOOO","YOOO"};
+		assertEquals(ConvertToBerlin("23:01:34"), time);
+	}
 }
