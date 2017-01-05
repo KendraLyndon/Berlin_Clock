@@ -16,20 +16,38 @@ public class BerlinClock {
 	protected String ConvertTopHours(int hours){
 
 		int litLamps = hours/5;
-		int lampQuantity = 4;
 		
-		return getLampsString(litLamps, lampQuantity, "R");
+		return GetLampsString(litLamps, 4, "R");
 	}
 	
 	protected String ConvertBottomHours(int hours){
 
-		int litLamps = hours % 10;
-		int lampQuantity = 4;
+		int litLamps = 0;
 		
-		return getLampsString(litLamps, lampQuantity, "R");
+		if(hours%10 > 5){
+			litLamps = (hours % 10)/2;
+		} else {
+			litLamps = hours % 10;
+		}
+		
+		return GetLampsString(litLamps, 4, "R");
+	}
+	
+	protected String ConvertTopMinutes(int minutes){
+		
+		int litLamps = minutes / 5;
+		
+		return GetLampsString(litLamps, 11, "Y");
 	}
 
-	private String getLampsString(int litLamps, int lampQuantity, String lampColor){
+	protected String ConvertBottomMinutes(int minutes){
+		
+		int litLamps =  minutes%5;
+		
+		return GetLampsString(litLamps, 4, "Y");
+	}
+	
+	private String GetLampsString(int litLamps, int lampQuantity, String lampColor){
 		
 		String output = "";
 		
