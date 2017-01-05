@@ -14,40 +14,33 @@ public class BerlinClock {
 	}
 	
 	protected String ConvertTopHours(int hours){
-		String topHours = "";
+
 		int litLamps = hours/5;
+		int lampQuantity = 4;
 		
-		for(int i=0; i<litLamps; i++){
-			topHours += "R";
-		}
-		
-		for(int i=topHours.length(); i<4; i++){
-			topHours += "O";
-		}
-		
-		return topHours;
+		return getLampsString(litLamps, lampQuantity, "R");
 	}
 	
 	protected String ConvertBottomHours(int hours){
-		String bottomHours = "";
+
 		int litLamps = hours % 10;
+		int lampQuantity = 4;
+		
+		return getLampsString(litLamps, lampQuantity, "R");
+	}
+
+	private String getLampsString(int litLamps, int lampQuantity, String lampColor){
+		
+		String output = "";
 		
 		for(int i=0; i<litLamps; i++){
-			bottomHours += "R";
+			output += lampColor;
 		}
 		
-		for(int i=bottomHours.length(); i<4; i++){
-			bottomHours += "O";
+		for(int i=output.length(); i<lampQuantity; i++){
+			output += "O";
 		}
 		
-		return bottomHours;
+		return output;
 	}
-//	
-//	protected String ConvertTopMinutes(int minutes){
-//		String topMinutes = "";
-//		
-//		if(minutes )
-//		
-//		return topMinutes;
-//	}
 }
